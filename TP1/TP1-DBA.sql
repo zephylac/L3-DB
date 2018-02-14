@@ -101,7 +101,7 @@ SELECT id_visiteur AS id_visiteur, COUNT(id_avatar) AS TOTAL FROM TP1_jeu.avatar
 # 16
 SELECT COUNT(id_objet) AS TOTAL FROM TP1_jeu.stock WHERE id_visiteur = (SELECT id_visiteur FROM TP1_jeu.visiteur WHERE login LIKE 'Elijah');
 
-# 17 On suppose que c'est aussi pour Elijah
+# 17 On suppose que c est aussi pour Elijah
 SELECT nom_objet FROM TP1_jeu.objet JOIN TP1_jeu.stock ON ( TP1_jeu.objet.id_objet = TP1_jeu.stock.id_objet) WHERE id_visiteur = (SELECT id_visiteur FROM TP1_jeu.visiteur WHERE login LIKE 'Elijah');
 
 # 18
@@ -116,8 +116,6 @@ SELECT SUM(prix) AS Depense FROM TP1_jeu.objet JOIN TP1_jeu.stock ON ( TP1_jeu.o
 SELECT (nom_avatar, nom_race, sexe) FROM TP1_jeu.avatar JOIN TP1_jeu.race ON (TP1_jeu.avatar.id_race = TP1_jeu.race.id_race) WHERE xp = (SELECT max(xp) FROM TP1_jeu.avatar) ;
 
 # 21
-id_visiteur, login, nom_avatar, nom_race, nom_jeu,
-highscore.
 CREATE VIEW TP1_jeu.test AS
 	(SELECT TP1_jeu.visiteur.login AS login, TP1_jeu.visiteur.id_visiteur AS visiteur,TP1_jeu.avatar.nom_avatar AS avatar, TP1_jeu.race.nom_race AS race, TP1_jeu.jeu.nom_jeu AS jeu, TP1_jeu.partie.highscore AS highscore
 		FROM TP1_jeu.visiteur
